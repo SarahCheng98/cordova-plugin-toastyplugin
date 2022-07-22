@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-toastyplugin" version="0.0.1">
+    <name>ToastyPlugin</name>
+  
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+  
+    <js-module src="www/ToastyPlugin.js" name="ToastyPlugin">
+        <clobbers target="window.plugins.toastyPlugin" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="toastyplugin">
+                <param name="android-package" value="plugin.toastyplugin.ToastyPlugin"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/ToastyPlugin.java" target-dir="src/plugin/toastyplugin" />
+    </platform>
+</plugin>
