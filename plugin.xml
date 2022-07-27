@@ -29,6 +29,6 @@
                 <param name="android-package" value="plugin.toastyplugin.ToastyPlugin"/>
             </feature>
         </config-file>
-        <source-file src="sre/ios/ToastyPlugin.swift" target-dir="src/plugin/toastyplugin" />
+        <source-file src="sre/ios/ToastyPlugin.swift" />
     </platform>
 </plugin>
