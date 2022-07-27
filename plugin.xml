@@ -11,13 +11,24 @@
     <js-module src="www/ToastyPlugin.js" name="ToastyPlugin">
         <clobbers target="window.plugins.toastyPlugin" />
     </js-module>
+
+    <!--Android-->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="toastyplugin">
                 <param name="android-package" value="plugin.toastyplugin.ToastyPlugin"/>
             </feature>
         </config-file>
-
         <source-file src="src/android/ToastyPlugin.java" target-dir="src/plugin/toastyplugin" />
+    </platform>
+
+    <!--iOS-->
+    <platform name="ios">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="toastyplugin">
+                <param name="android-package" value="plugin.toastyplugin.ToastyPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="sre/ios/ToastyPlugin.swift" target-dir="src/plugin/toastyplugin" />
     </platform>
 </plugin>
