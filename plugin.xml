@@ -3,7 +3,13 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="cordova-plugin-toastyplugin" version="0.0.1">
     <name>ToastyPlugin</name>
+
+    <description>My first toasty plugin</description>
   
+    <author>An author</author>
+
+    <license>Apache 2.0 License</license>
+
     <engines>
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
