@@ -6,6 +6,7 @@ ToastyPlugin.prototype.show = function(message, duration, successCallback, error
   console.log("Calling js.");
   console.log("message = " + message);
   console.log("duration = " + duration);
+  alert("ToastyPluginJS.show called")
   var options = {};
   options.message = message;
   options.duration = duration;
