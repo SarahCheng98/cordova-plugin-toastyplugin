@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 @objc(ToastyPlugin) class ToastyPlugin : CDVPlugin {
     func show(command: CDVInvokedUrlCommand){
@@ -7,15 +8,17 @@ import Foundation
         )
 
         let input = command.arguments[0]
+        var message = ""
+        var duration = "long"
         if let dictionary = input as? [String: Any]{
-            let message = dictionary["message"] as? String ?? ""
-            let duration = dictionary["duration"] as? String ?? "long"
+            message = dictionary["message"] as? String ?? ""
+            lduration = dictionary["duration"] as? String ?? "long"
         }else{
-            let message = ""
-            let duration = "long"
+            message = ""
+            duration = "long"
         }
 
-        if msg.characters.count > 0 {
+        if msg != "" {
             let toastController: UIALertController =
                UIALertController(
                 title: "",
