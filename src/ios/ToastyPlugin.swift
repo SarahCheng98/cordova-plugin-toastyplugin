@@ -17,7 +17,7 @@ import UIKit
                 
             }
         }))
-        self.viewController.present(alert, animated: true, completion: nil)
+        self.viewController?.presentViewController(alert, animated: true, completion: nil)
 
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR
