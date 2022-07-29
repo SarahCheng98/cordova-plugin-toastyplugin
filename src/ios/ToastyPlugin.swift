@@ -30,7 +30,7 @@ import UIKit
             toastLabel.font = .systemFont(ofSize: 12.0);
             toastLabel.text = message
             toastLabel.alpha = 1.0
-            toastLabel.cornerRadius = 10;
+            toastLabel.layer.cornerRadius = 10;
             toastLabel.clipsToBounds = true
             self.viewController.view.addSubview(toastLabel)
             UIView.animate(withDuration: seconds, delay: 0.1, options: .curveEaseOut, animations: {
@@ -41,7 +41,7 @@ import UIKit
 
             pluginResult = CDVPluginResult(
                 status: CDVCommandStatus_OK,
-                messageAsString: message
+                messageAs: message
             )
         }
 
