@@ -32,7 +32,7 @@
     <platform name="ios">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="toastyplugin">
-                <param name="ios-package" value="plugin.toastyplugin.ToastyPlugin"/>
+                <param name="ios-package" value="ToastyPlugin"/>
             </feature>
         </config-file>
         <source-file src="src/ios/ToastyPlugin.swift" />
