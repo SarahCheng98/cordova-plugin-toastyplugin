@@ -10,47 +10,34 @@ import UIKit
         let input = command.arguments[0]
         var message = ""
         var duration = "long"
+        var seconds = 4.0
         if let dictionary = input as? [String: Any]{
             message = dictionary["message"] as? String ?? ""
-            lduration = dictionary["duration"] as? String ?? "long"
+            duration = dictionary["duration"] as? String ?? "long"
+            if duration == "short"{
+                seconds = 2.0
+            }
         }else{
             message = ""
             duration = "long"
         }
 
-        if msg != "" {
-            let toastController: UIALertController =
-               UIALertController(
-                title: "",
-                message: message,
-                preferredStyle: .Alert
-               )
-
-            self.viewController?.presentViewController(
-                toastController,
-                animated: true,
-                completion: nil
-            )
-
-            if(duration == "long"){
-                let showingTime = Double(NSEC_PER_SEC) * 6.0
-            }else{
-                let showingTime = Double(NSEC_PER_SEC) * 3.0
-            }
-
-            dispatch_after(
-                dispatch_time(
-                    DISPATCH_TIME_NOW,
-                    Int64(duration)
-                ),
-                dispatch_get_main_queue(),
-                {
-                    toastController.dismissViewControllerAnimated(
-                        true,
-                        completion: nil
-                    )
-                }
-            )
+        if message.count > 0{
+            let toastLabel = UILabel(frame: CGRect(x: self.viewController.view.frame.size.width/2 - 75, y: self.viewController.view.frame.size.height-100, width: 150, height: 35))
+            toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+            toastLabel.textColor = UIColor.white
+            toastLabel.textAlignment = .center;
+            toastLabel.font = .systemFont(ofSize: 12.0);
+            toastLabel.text = message
+            toastLabel.alpha = 1.0
+            toastLabel.cornerRadius = 10;
+            toastLabel.clipsToBounds = true
+            self.viewController.view.addSubview(toastLabel)
+            UIView.animate(withDuration: seconds, delay: 0.1, options: .curveEaseOut, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: {(isCompleted) in
+                toastLabel.removeFromSuperview()
+            })
 
             pluginResult = CDVPluginResult(
                 status: CDVCommandStatus_OK,
@@ -58,9 +45,10 @@ import UIKit
             )
         }
 
-        self.commandDelegate!.sendPluginResult(
+        self.commandDelegate!.send(
             pluginResult,
             callbackId: command.callbackId
         )
+
     }
 }
