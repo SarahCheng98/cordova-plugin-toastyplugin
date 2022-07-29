@@ -15,13 +15,13 @@ import Foundation
             let duration = "long"
         }
 
-        if msg.count > 0 {
+        if msg.characters.count > 0 {
             let toastController: UIALertController =
-               UIALertController{
+               UIALertController(
                 title: "",
                 message: message,
                 preferredStyle: .Alert
-               }
+               )
 
             self.viewController?.presentViewController(
                 toastController,
