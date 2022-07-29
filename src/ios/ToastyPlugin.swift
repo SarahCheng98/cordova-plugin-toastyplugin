@@ -3,6 +3,22 @@ import UIKit
 
 @objc(ToastyPlugin) class ToastyPlugin : CDVPlugin {
     func show(command: CDVInvokedUrlCommand){
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                print("default")
+                
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+                
+            }
+        }))
+        self.viewController.present(alert, animated: true, completion: nil)
+
         var pluginResult = CDVPluginResult(
             status: CDVCommandStatus_ERROR
         )
