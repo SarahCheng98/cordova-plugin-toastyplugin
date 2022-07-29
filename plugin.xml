@@ -18,6 +18,8 @@
         <clobbers target="window.plugins.toastyPlugin" />
     </js-module>
 
+    <dependency id="cordova-plugin-add-swift-support" version="2.0.2"/>
+
     <!--Android-->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
@@ -35,6 +37,7 @@
                 <param name="ios-package" value="ToastyPlugin"/>
             </feature>
         </config-file>
+        <preference name="UseSwiftLanguageVersion" value="5" />
         <source-file src="src/ios/ToastyPlugin.swift" />
     </platform>
 </plugin>
