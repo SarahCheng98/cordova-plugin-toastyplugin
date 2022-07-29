@@ -9,10 +9,6 @@ import UIKit
             status: CDVCommandStatus_ERROR
         )
 
-            pluginResult = CDVPluginResult(
-                status: CDVCommandStatus_OK,
-                messageAs: message
-            )
         
 
         self.commandDelegate!.send(
