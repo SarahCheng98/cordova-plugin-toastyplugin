@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 @objc(ToastyPlugin) class ToastyPlugin : CDVPlugin {
+    @obj(show:)
     func show(command: CDVInvokedUrlCommand){
         let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
